@@ -102,6 +102,14 @@ h5:hover {
   padding: 10px;
 }
 
+.memory-btn {
+  padding: 10px;
+}
+
+.clear-btn {
+  padding: 10px;
+}
+
 footer {
   text-align: center;
   border-top: 1px solid #17252a;
