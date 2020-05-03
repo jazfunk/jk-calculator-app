@@ -4,10 +4,6 @@ let operator = "";
 let numberMemory = "0";
 let isDecimal = false;
 
-window.onload = () => {
-  addButtonEventListeners();
-};
-
 const numberButtons = document.querySelectorAll(".number-btn");
 numberButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -25,6 +21,7 @@ numberButtons.forEach((button) => {
       if (number1 === "0") {
         number1 = buttonPressed;
       } else {
+        debugger;
         number1 += buttonPressed;
       }
       displayValue = number1;
@@ -69,12 +66,16 @@ const operatorButtons = document.querySelectorAll(".operator-btn");
 operatorButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     if (number2 === "0") {
+      if (document.getElementById("input-display").value === "") {
+        return;
+      } else {
+        number1 = document.getElementById("input-display").value;
+      }
       operator = e.target.innerText;
       isDecimal = false;
     } else {
       document.getElementById("input-display").value = calculateInput();
       clearValues();
-      number1 = document.getElementById("input-display").value;
     }
   });
 });
@@ -104,6 +105,20 @@ clearButtons.forEach((button) => {
     // debugger;
     if (e.target.innerText === "C") {
       clearValues();
+      document.getElementById("input-display").value = "0";
+    }
+    if (e.target.innerText === "CE") {
+      document.getElementById("input-display").value = "0";
+      if (number2 === "0") {
+        if (operator === "") {
+          number1 = "0";        
+        }  else {
+          operator = "";
+        }     
+      } else {        
+          number2 = "0";
+          operator = "";    
+      }
     }
   });
 });
