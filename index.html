@@ -2,61 +2,85 @@
 <html>
   <head>
     <title>'rithmetic</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-
     <header>
       <h1>Calculator App</h1>
     </header>
 
     <main>
       <div class="main-container">
-        
+
         <div class="calculator">
+
           <div class="calculator-display">
             <input
-                  id="input-display"
-                  type="text"
-                  class="display-textbox"
-                  placeholder="0"
-                  required
-                />
+              id="input-display"
+              type="text"
+              class="display-textbox"
+              placeholder="0"
+              required
+            />
           </div>
-          <div class="button-row-789">
-            <button id="btn-7" class="number-btn">7</button>
-            <button id="btn-8" class="number-btn">8</button>
-            <button id="btn-9" class="number-btn">9</button>
+       
+          <div class="calculator-buttons">
+
+            <div class="input-buttons">
+              <div class="button-row-789">
+                <button id="btn-7" class="number-btn clickable">7</button>
+                <button id="btn-8" class="number-btn clickable">8</button>
+                <button id="btn-9" class="number-btn clickable">9</button>
+              </div>
+              <div class="button-row-456">
+                <button id="btn-4" class="number-btn clickable">4</button>
+                <button id="btn-5" class="number-btn clickable">5</button>
+                <button id="btn-6" class="number-btn clickable">6</button>
+              </div>
+              <div class="button-row-123">
+                <button id="btn-1" class="number-btn clickable">1</button>
+                <button id="btn-2" class="number-btn clickable">2</button>
+                <button id="btn-3" class="number-btn clickable">3</button>
+              </div>
+              <div class="button-row-odectotal">
+                <button id="btn-0" class="number-btn clickable">0</button>
+                <button id="btn-decimal" class="number-btn clickable">.</button>
+                <button id="btn-total" class="number-btn clickable">=</button>
+              </div>
+            </div>
+
+            <div class="operator-buttons">
+              <button id="btn-multiply" class="operator-btn clickable">X</button>
+              <button id="btn-divide" class="operator-btn clickable">/</button>
+              <button id="btn-add" class="operator-btn clickable">+</button>
+              <button id="btn-subtract" class="operator-btn clickable">-</button>
+              <button id="btn-clear" class="operator-btn clickable">C</button>
+              <button id="btn-memory-add" class="operator-btn clickable">M+</button>
+              <button id="btn-memory-recall" class="operator-btn clickable">MR</button>
+              <button id="btn-memory-clear" class="operator-btn clickable">MC</button>
+            </div>
+
           </div>
-          <div class="button-row-456">
-            <button id="btn-4" class="number-btn">4</button>
-            <button id="btn-5" class="number-btn">5</button>
-            <button id="btn-6" class="number-btn">6</button>
-          </div>
-          <div class="button-row-123">
-            <button id="btn-1" class="number-btn">1</button>
-            <button id="btn-2" class="number-btn">2</button>
-            <button id="btn-3" class="number-btn">3</button>
-          </div>
-          <div class="button-row-0DECTOTAL">
-            <button id="btn-0" class="number-btn">0</button>
-            <button id="btn-decimal" class="number-btn">.</button>
-            <button id="btn-total" class="number-btn">TOTAL</button>
-          </div>
-          
+
         </div>
+
       </div>
-
-
-
     </main>
 
     <footer>
-
-
-
+      <div class="footer-table">
+        <img src="/images/titleGraphicWithLogoOPTIMIZED.svg" alt="Jeff King">
+        <h4>Software Development Mastermind</h4>
+        <h3>
+          <a href="https://github.com/jazfunk">GitHub</a>
+          |
+          <a href="https://www.linkedin.com/in/jeffking222/">LinkedIn</a>
+          |
+          <a href="https://www.jeff-king.net/">Website</a>
+        </h3>
+      </div>
     </footer>
-    
+
     <script src="script.js"></script>
   </body>
 </html>

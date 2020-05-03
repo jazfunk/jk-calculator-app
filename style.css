@@ -4,6 +4,22 @@ body {
   background-color: #3AAFA9;
 }
 
+.clickable {
+  cursor: pointer;
+}
+a:link {
+  color: #def2f1;
+}
+a:visited {
+  color: #2b7a78;
+}
+a:hover {
+  color: #feffff;
+}
+a:active {
+  color: #17252a;
+}
+
 h1 {
   text-align: center;
   font-size: 36px;
@@ -12,6 +28,37 @@ h1 {
   text-shadow: 2px 2px 2px #def2f1;
   padding: 0px;
   margin: 0 auto;
+}
+
+h2 {
+  font-size: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #17252a;
+  padding: 0px;
+  margin: 0 auto;
+}
+h3 {
+  font-size: 14px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #17252a;
+  padding: 0px;
+  margin: 0 auto;
+}
+h4 {
+  font-size: 14px;
+  font-family: "Courier New", Courier, monospace;
+  color: #2b7a78;
+  padding: 0px;
+  margin: 0 auto;
+}
+h5 {
+  margin: 0 auto;
+  font-size: 22px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: red;
+}
+h5:hover {
+  color: black;
 }
 
 .main-container {
@@ -30,4 +77,35 @@ h1 {
   padding-right: 2px;
   font-family: 'Courier New', Courier, monospace;
   font-size: 28px;
+}
+
+.calculator-buttons {
+  display: flex;
+  /* border: 2px solid #17252a; */
+}
+
+.input-buttons {
+  border: 2px solid #def2f1;
+  flex: 2;
+}
+
+.number-btn {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.operator-buttons {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #2b7a78;
+}
+
+.operator-btn {
+  padding: 10px;
+}
+.footer-table {
+  text-align: center;
+  border-top: 1px solid #17252a;
+  padding-top: 8px;
+  width: 100%;
 }
