@@ -81,7 +81,6 @@ h5:hover {
 
 .calculator-buttons {
   display: flex;
-  /* border: 2px solid #17252a; */
 }
 
 .input-buttons {
@@ -91,7 +90,6 @@ h5:hover {
 
 .number-btn {
   padding: 20px;
-  border-radius: 8px;
 }
 
 .operator-buttons {
@@ -103,7 +101,8 @@ h5:hover {
 .operator-btn {
   padding: 10px;
 }
-.footer-table {
+
+footer {
   text-align: center;
   border-top: 1px solid #17252a;
   padding-top: 8px;
