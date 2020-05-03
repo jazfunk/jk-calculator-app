@@ -64,12 +64,15 @@ h5:hover {
 .main-container {
   display: flex;
   margin: 0 auto;
+  border: 1px solid black;
 }
 
 .calculator {
   display: flex;
   margin: 0 auto;
+  padding: 0px;
   flex-direction: column;
+  border: 0px solid yellow;
 }
 
 .display-textbox {
@@ -79,27 +82,59 @@ h5:hover {
   font-size: 28px;
 }
 
+.clear-memory {
+  display: flex;
+  margin: 0 auto;
+  border: 0px solid blue;
+}
+
 .calculator-buttons {
   display: flex;
+  margin: 0 auto;
+  padding: 0px;
+  border: 0px solid red;
 }
 
 .input-buttons {
-  border: 2px solid #def2f1;
-  flex: 2;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0px;
+  border: 0px solid #def2f1;
+}
+
+.button-row-789 {
+  display: flex;
+  align-items: flex-end;
+}
+.button-row-456 {
+  display: flex;
+  align-items: flex-end;
+}
+.button-row-123 {
+  display: flex;
+  align-items: flex-end;
+}
+.button-row-zerodecimaltotal {
+  display: flex;
+  align-items: flex-end;
 }
 
 .number-btn {
-  padding: 20px;
+  margin: 0 auto;
+  width: 72px;
+  height: 72px;
 }
 
 .operator-buttons {
   display: flex;
   flex-direction: column;
-  border: 2px solid #2b7a78;
+  border: 0px solid #2b7a78;
 }
 
 .operator-btn {
-  padding: 10px;
+  width: 72px;
+  height: 72px;
 }
 
 .memory-btn {

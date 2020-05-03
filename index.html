@@ -6,7 +6,9 @@
   </head>
   <body>
     <header>
-      <h1>Calculator App</h1>
+      <h1>Calculator App
+      <div id="show-operator"></div>
+      </h1>
     </header>
 
     <main>
@@ -15,11 +17,19 @@
           <div class="calculator-display">
             <input
               id="input-display"
-              type="text"
+              type="number"
+              steps="any"
               class="display-textbox"
               placeholder="0"
               required
             />
+          </div>
+          <div class="clear-memory">            
+            <button id="btn-clear-error" class="clear-btn clickable">CE</button>
+            <button id="btn-clear-all" class="clear-btn clickable">C&nbsp;</button>
+            <button id="btn-memory-add" class="memory-btn clickable">M+</button>
+            <button id="btn-memory-recall" class="memory-btn clickable">MR</button>
+            <button id="btn-memory-clear" class="memory-btn clickable">MC</button>
           </div>
 
           <div class="calculator-buttons">
@@ -42,7 +52,7 @@
               <div class="button-row-zerodecimaltotal">
                 <button id="btn-0" class="number-btn clickable">0</button>
                 <button id="btn-decimal" class="number-btn clickable">&nbsp;.</button>
-                <button id="btn-total" class="number-btn clickable">=</button>
+                <button id="btn-total" class="operator-btn clickable">=</button>
               </div>
             </div>
 
@@ -51,11 +61,6 @@
               <button id="btn-divide" class="operator-btn clickable">/</button>
               <button id="btn-add" class="operator-btn clickable">+</button>
               <button id="btn-subtract" class="operator-btn clickable">-</button>
-              <button id="btn-clear-error" class="clear-btn clickable">CE</button>
-              <button id="btn-clear-all" class="clear-btn clickable">C</button>
-              <button id="btn-memory-add" class="memory-btn clickable">M+</button>
-              <button id="btn-memory-recall" class="memory-btn clickable">MR</button>
-              <button id="btn-memory-clear" class="memory-btn clickable">MC</button>
             </div>
           </div>
         </div>
