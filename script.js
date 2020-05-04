@@ -8,7 +8,8 @@ const numberButtons = document.querySelectorAll(".number-btn");
 numberButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     const buttonPressed = e.target.innerText;
-    let displayValue = "0";
+
+    let valueToDisplay = "0";
 
     if (buttonPressed === ".") {
       if (isDecimal) {
@@ -16,22 +17,24 @@ numberButtons.forEach((button) => {
       }
       isDecimal = true;
     }
+
     if (operator === "") {
       if (number1 === "0") {
         number1 = buttonPressed;
       } else {
         number1 += buttonPressed;
       }
-      displayValue = number1;
+      valueToDisplay = number1;
     } else {
       if (number2 === "0") {
         number2 = buttonPressed;
       } else {
         number2 += buttonPressed;
       }
-      displayValue = number2;
+      valueToDisplay = number2;
     }
-    document.getElementById("input-display").value = displayValue;
+
+    document.getElementById("input-display").value = valueToDisplay;
   });
 });
 
@@ -39,16 +42,19 @@ const operatorButtons = document.querySelectorAll(".operator-btn");
 operatorButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     debugger;
+
     if (number2 === "0") {
-      if (document.getElementById("input-display").value === "0") {
+      if (document.getElementById("input-display").value === "") {
         return;
       } else {
-        debugger;
         number1 = document.getElementById("input-display").value;
       }
       operator = e.target.innerText;
       isDecimal = false;
     } else {
+      if (number1 === "0") {
+        number1 = document.getElementById("input-display").value;
+      }
       document.getElementById("input-display").value = calculateInput();
       clearValues();
     }
@@ -104,6 +110,7 @@ let calculateInput = () => {
         return -1;
     }
   } catch (error) {
+    console.log(error);
     return -1;
   }
 };
