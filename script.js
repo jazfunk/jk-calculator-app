@@ -18,46 +18,38 @@ numberButtons.forEach((button) => {
     }
 
     if (operator === "") {
-      if (number1 === "0") {
-        number1 = buttonPressed;
-      } else {
-        number1 += buttonPressed;
-      }
+      number1 === "0" ? (number1 = buttonPressed) : (number1 += buttonPressed);
       valueToDisplay = number1;
     } else {
-      if (number2 === "0") {
-        number2 = buttonPressed;
-      } else {
-        number2 += buttonPressed;
-      }
+      number2 === "0" ? (number2 = buttonPressed) : (number2 += buttonPressed);
       valueToDisplay = number2;
     }
 
-    document.getElementById("input-display").value = valueToDisplay;
+    if (isDecimal) {
+      valueToDisplay += "0";
+    }
+
+    document.getElementById("input-display").value = parseFloat(valueToDisplay);
   });
 });
 
 const operatorButtons = document.querySelectorAll(".operator-btn");
 operatorButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
-    debugger;
+    let inputDisplay = document.getElementById("input-display");
 
     if (number2 === "0") {
-      if (document.getElementById("input-display").value === "") {
+      if (!inputDisplay.value) {
         return;
       } else {
-        number1 = document.getElementById("input-display").value;
+        number1 = inputDisplay.value;
+        operator = e.target.innerText;
+        isDecimal = false;
       }
-      operator = e.target.innerText;
-      isDecimal = false;
     } else {
-      if (number1 === "0") {
-        number1 = document.getElementById("input-display").value;
-      }
-      document.getElementById("input-display").value = calculateInput();
-      // clearValues();
+      inputDisplay.value = parseFloat(calculateInput().toFixed(11));
+      number1 = inputDisplay.value;
       number2 = "0";
-      number1 = document.getElementById("input-display").value;
       operator = e.target.innerText;
       isDecimal = false;
     }
@@ -73,6 +65,9 @@ memoryButtons.forEach((button) => {
 
     if (e.target.innerText === "MR") {
       document.getElementById("input-display").value = numberMemory;
+      if (number1 !== "0") {
+        number2 = numberMemory;
+      }
     }
 
     if (e.target.innerText === "MC") {
@@ -113,7 +108,7 @@ let calculateInput = () => {
         return -1;
     }
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
     return -1;
   }
 };
