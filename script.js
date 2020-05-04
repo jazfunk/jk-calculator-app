@@ -55,8 +55,11 @@ operatorButtons.forEach((button) => {
         number1 = document.getElementById("input-display").value;
       }
       document.getElementById("input-display").value = calculateInput();
-      clearValues();
+      // clearValues();
+      number2 = "0";
       number1 = document.getElementById("input-display").value;
+      operator = e.target.innerText;
+      isDecimal = false;
     }
   });
 });
