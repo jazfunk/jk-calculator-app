@@ -1,4 +1,4 @@
-# JavaScript Rock-Paper-Scissors Game
+# JavaScript Calculator App
 <!-- Written entirely in pure JavaScript, HTML, and CSS, this game is a spin on the classic "Rock, Paper, Scissors" game we've all played. -->
 
 ## Links

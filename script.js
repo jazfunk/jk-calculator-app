@@ -16,12 +16,10 @@ numberButtons.forEach((button) => {
       }
       isDecimal = true;
     }
-
     if (operator === "") {
       if (number1 === "0") {
         number1 = buttonPressed;
       } else {
-        debugger;
         number1 += buttonPressed;
       }
       displayValue = number1;
@@ -33,42 +31,19 @@ numberButtons.forEach((button) => {
       }
       displayValue = number2;
     }
-
     document.getElementById("input-display").value = displayValue;
   });
 });
 
-let clearValues = () => {
-  number1 = "0";
-  number2 = "0";
-  isDecimal = false;
-  operator = "";
-}
-
-let calculateInput = () => {
-  try {
-    switch (operator) {
-      case "X":
-        return parseFloat(number1) * parseFloat(number2);
-      case "/":
-        return parseFloat(number1) / parseFloat(number2);
-      case "+":
-        return parseFloat(number1) + parseFloat(number2);
-      case "-":
-        return parseFloat(number1) - parseFloat(number2);
-    }
-  } catch (error) {
-    return -1;
-  }
-};
-
 const operatorButtons = document.querySelectorAll(".operator-btn");
 operatorButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
+    debugger;
     if (number2 === "0") {
-      if (document.getElementById("input-display").value === "") {
+      if (document.getElementById("input-display").value === "0") {
         return;
       } else {
+        debugger;
         number1 = document.getElementById("input-display").value;
       }
       operator = e.target.innerText;
@@ -83,10 +58,8 @@ operatorButtons.forEach((button) => {
 const memoryButtons = document.querySelectorAll(".memory-btn");
 memoryButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
-    // debugger;
     if (e.target.innerText === "M+") {
       numberMemory = document.getElementById("input-display").value;
-      console.log(numberMemory);
     }
 
     if (e.target.innerText === "MR") {
@@ -102,23 +75,35 @@ memoryButtons.forEach((button) => {
 const clearButtons = document.querySelectorAll(".clear-btn");
 clearButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
-    // debugger;
     if (e.target.innerText === "C") {
       clearValues();
       document.getElementById("input-display").value = "0";
     }
-    if (e.target.innerText === "CE") {
-      document.getElementById("input-display").value = "0";
-      if (number2 === "0") {
-        if (operator === "") {
-          number1 = "0";        
-        }  else {
-          operator = "";
-        }     
-      } else {        
-          number2 = "0";
-          operator = "";    
-      }
-    }
   });
 });
+
+let clearValues = () => {
+  number1 = "0";
+  number2 = "0";
+  isDecimal = false;
+  operator = "";
+};
+
+let calculateInput = () => {
+  try {
+    switch (operator) {
+      case "X":
+        return parseFloat(number1) * parseFloat(number2);
+      case "/":
+        return parseFloat(number1) / parseFloat(number2);
+      case "+":
+        return parseFloat(number1) + parseFloat(number2);
+      case "-":
+        return parseFloat(number1) - parseFloat(number2);
+      default:
+        return -1;
+    }
+  } catch (error) {
+    return -1;
+  }
+};

@@ -55,7 +55,6 @@ h5 {
   margin: 0 auto;
   font-size: 22px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: red;
 }
 h5:hover {
   color: black;
@@ -64,7 +63,6 @@ h5:hover {
 .main-container {
   display: flex;
   margin: 0 auto;
-  border: 1px solid black;
 }
 
 .calculator {
@@ -72,7 +70,6 @@ h5:hover {
   margin: 0 auto;
   padding: 0px;
   flex-direction: column;
-  border: 0px solid yellow;
 }
 
 .display-textbox {
@@ -85,14 +82,12 @@ h5:hover {
 .clear-memory {
   display: flex;
   margin: 0 auto;
-  border: 0px solid blue;
 }
 
 .calculator-buttons {
   display: flex;
   margin: 0 auto;
   padding: 0px;
-  border: 0px solid red;
 }
 
 .input-buttons {
@@ -100,7 +95,6 @@ h5:hover {
   flex-direction: column;
   margin: 0 auto;
   padding: 0px;
-  border: 0px solid #def2f1;
 }
 
 .button-row-789 {
@@ -129,7 +123,6 @@ h5:hover {
 .operator-buttons {
   display: flex;
   flex-direction: column;
-  border: 0px solid #2b7a78;
 }
 
 .operator-btn {
