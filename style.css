@@ -73,6 +73,7 @@ h5:hover {
 }
 
 .display-textbox {
+  width: 282px;
   text-align: right;
   padding-right: 2px;
   font-family: 'Courier New', Courier, monospace;

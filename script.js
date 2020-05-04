@@ -8,7 +8,6 @@ const numberButtons = document.querySelectorAll(".number-btn");
 numberButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     const buttonPressed = e.target.innerText;
-
     let valueToDisplay = "0";
 
     if (buttonPressed === ".") {
@@ -57,6 +56,7 @@ operatorButtons.forEach((button) => {
       }
       document.getElementById("input-display").value = calculateInput();
       clearValues();
+      number1 = document.getElementById("input-display").value;
     }
   });
 });
