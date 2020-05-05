@@ -1,14 +1,14 @@
-let number1 = "0";
-let number2 = "0";
+let number1 = "";
+let number2 = "";
 let operator = "";
-let numberMemory = "0";
+let numberMemory = "";
 let isDecimal = false;
 
 const numberButtons = document.querySelectorAll(".number-btn");
 numberButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     const buttonPressed = e.target.innerText;
-    let valueToDisplay = "0";
+    let valueToDisplay = "";
 
     if (buttonPressed === ".") {
       if (isDecimal) {
@@ -18,18 +18,20 @@ numberButtons.forEach((button) => {
     }
 
     if (operator === "") {
-      number1 === "0" ? (number1 = buttonPressed) : (number1 += buttonPressed);
+      !number1 ? (number1 = buttonPressed) : (number1 += buttonPressed);
       valueToDisplay = number1;
     } else {
-      number2 === "0" ? (number2 = buttonPressed) : (number2 += buttonPressed);
+      !number2 ? (number2 = buttonPressed) : (number2 += buttonPressed);
       valueToDisplay = number2;
     }
 
-    if (isDecimal) {
-      valueToDisplay += "0";
+     if (isDecimal) {
+       if (valueToDisplay.charAt(valueToDisplay.length - 1) === ".") {
+        valueToDisplay += "0";      
+       }
+      
     }
-
-    document.getElementById("input-display").value = parseFloat(valueToDisplay);
+    document.getElementById("input-display").value = valueToDisplay;
   });
 });
 
@@ -38,7 +40,7 @@ operatorButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     const inputDisplay = document.getElementById("input-display");
 
-    if (number2 === "0") {
+    if (!number2) {
       if (!inputDisplay.value) {
         return;
       } else {
@@ -48,9 +50,9 @@ operatorButtons.forEach((button) => {
       }
     } else {
       inputDisplay.value = parseFloat(calculateInput().toFixed(11));
-      number1 = inputDisplay.value;
-      number2 = "0";
       operator = e.target.innerText;
+      number1 = inputDisplay.value;
+      number2 = "";
       isDecimal = false;
     }
   });
@@ -69,13 +71,13 @@ memoryButtons.forEach((button) => {
       case "MR":
         if (numberMemory !== "0") {
           inputDisplay.value = numberMemory;
-          if (number1 !== "0") {
+          if (!number1) {
             number2 = numberMemory;
           }
         }
         break;
-      case "M-":
-        numberMemory = "0";
+      case "MC":
+        numberMemory = "";
         break;
     }
   });
@@ -84,33 +86,38 @@ memoryButtons.forEach((button) => {
 const clearButtons = document.querySelectorAll(".clear-btn");
 clearButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
-    if (e.target.innerText === "C") {
-      clearValues();
-      document.getElementById("input-display").value = "0";
+    switch (e.target.innerText) {
+      case "C":
+        return clearValues(true);
+      case "CE":
+        return clearValues();
     }
+    document.getElementById("input-display").value = number1;
   });
 });
 
-let clearValues = () => {
-  number1 = "0";
-  number2 = "0";
+let clearValues = (clearAll) => {
+  if (clearAll) {
+    number1 = "";
+    operator = "";
+  }
+  number2 = "";
   isDecimal = false;
-  operator = "";
+  document.getElementById("input-display").value = "0";
 };
 
 let calculateInput = () => {
   try {
     switch (operator) {
-      case "X":
+      case "\xD7":
         return parseFloat(number1) * parseFloat(number2);
-      case "/":
+      case "\xF7":
         return parseFloat(number1) / parseFloat(number2);
       case "+":
+      case "=":
         return parseFloat(number1) + parseFloat(number2);
-      case "-":
+      case "\u2212":
         return parseFloat(number1) - parseFloat(number2);
-      default:
-        return -1;
     }
   } catch (error) {
     console.log(error.message);
