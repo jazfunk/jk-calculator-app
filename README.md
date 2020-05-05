@@ -1,5 +1,5 @@
 # JavaScript Calculator App
-<!-- Written entirely in pure JavaScript, HTML, and CSS, this game is a spin on the classic "Rock, Paper, Scissors" game we've all played. -->
+Written in vanilla JavaScript, HTML, and CSS.  A simple calculator, with memory functions.
 
 ## Links
 [View Application](https://jazfunk.github.io/jk-calculator-app/)  
@@ -9,11 +9,12 @@
 <img src="images/calculatorApp_SS.png">  
 
 ## Summary
-<!-- Building this game was slightly challenging.  Although the intial logic to determine a winner was fairly simple, I spent a great deal of time experimenting with CSS styles, and making the UI elements dynamic in regards to game play.  While developing this game, I discovered how valuable CSS can be; used in conjunction with JavaScript, you can make your webpage stand out.
+You would think a calculator is fairly easy to code the logic for, but there are some challenging aspects when dealing with strings and numbers; trying to sum them in a mathematical equation, make sure only one decimal point is allowed, etc.
 
-An important coding technique I learned was the "Single Responsibility Principle"; to make sure functions do one thing, and do it well.  By keeping them limited, it makes for easier debugging, and other programmers can understand the code better.  
+Through the use of "truthy" and "falsy" checks, I simplied the validation of input data.  Comparing a boolean value of whether the object has usable data, instead of checking the specific value, lead to shorter, cleaner code.
 
-Finally, gaining the understanding of reducing global variables to limit the potential for conflicts between other libraries and resources was invaluable for me as I strive to hone my craft. -->
+This was a lot of fun to develop, and I thought it was going to take a weeks.  It only took three days, from the first line of code, to the final styling.
+
 
 ## Author
 * **Jeff King** - *Full Stack Software Developer* - [GitHub](https://github.com/jazfunk) | [LinkedIn](https://www.linkedin.com/in/jeffking222/) | [Website](https://jeff-king.net)
