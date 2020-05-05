@@ -70,6 +70,8 @@ h5:hover {
 .main-container {
   display: flex;
   margin: 0 auto;
+  width: 288px;
+  background-color: #def2f1;
 }
 
 .calculator {
@@ -77,13 +79,17 @@ h5:hover {
   margin: 0 auto;
   padding: 0px;
   flex-direction: column;
+  align-items: flex-end;
 }
 
 .display-textbox {
-  width: 260px;
-  height: 60px;
+  margin: 0 auto;
+  border: 0px solid black;
+  /* width: 288px; */
+  /* height: 60px; */
   text-align: right;
-  padding: 0px 10px 0px 10px;
+  background-color: #def2f1;
+  padding: 0px 0px 0px 0px;
   margin: 0px 0px 0px 0px;
   font-family: 'Courier New', Courier, monospace;
   font-size: 22px;
@@ -146,7 +152,7 @@ h5:hover {
 }
 
 .clear-btn {
-  width: 72px;
+  width: 36px;
   height: 42px;
 }
 
