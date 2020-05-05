@@ -46,7 +46,7 @@ operatorButtons.forEach((button) => {
         isDecimal = false;
       }
     } else {
-      inputDisplay.value = parseFloat(calculateInput().toFixed(11));
+      inputDisplay.value = parseFloat(calculateInput().toFixed(10));
       operator = e.target.innerText;
       number1 = inputDisplay.value;
       number2 = "";
@@ -90,7 +90,7 @@ clearButtons.forEach((button) => {
         return resetValues();
     }
 
-    document.getElementById("input-display").value = number1;
+    document.getElementById("input-display").value = !number1 ? "0" : number1;
   });
 });
 
