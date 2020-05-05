@@ -47,15 +47,10 @@ operatorButtons.forEach((button) => {
         isDecimal = false;
       }
     } else {
-
-      // There's some error with this whenever clicking the 
-      // total/equals button in some cases.
-      // find this tomorrow.
-
       inputDisplay.value = parseFloat(calculateInput().toFixed(11));
+      operator = e.target.innerText;
       number1 = inputDisplay.value;
       number2 = "";
-      operator = e.target.innerText;
       isDecimal = false;
     }
   });
@@ -92,18 +87,10 @@ clearButtons.forEach((button) => {
     switch (e.target.innerText) {
       case "C":
         return clearValues(true);
-        // break;
-
       case "CE":
         return clearValues();
-        // break;
     }
     document.getElementById("input-display").value = number1;
-
-    // if (e.target.innerText === "C") {
-    //   clearValues();
-    //   document.getElementById("input-display").value = "";
-    // }
   });
 });
 
@@ -125,6 +112,7 @@ let calculateInput = () => {
       case "/":
         return parseFloat(number1) / parseFloat(number2);
       case "+":
+      case "=":
         return parseFloat(number1) + parseFloat(number2);
       case "-":
         return parseFloat(number1) - parseFloat(number2);
