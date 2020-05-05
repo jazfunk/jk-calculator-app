@@ -25,11 +25,8 @@ numberButtons.forEach((button) => {
       valueToDisplay = number2;
     }
 
-     if (isDecimal) {
-       if (valueToDisplay.charAt(valueToDisplay.length - 1) === ".") {
-        valueToDisplay += "0";      
-       }
-      
+    if (isDecimal && valueToDisplay.charAt(valueToDisplay.length - 1) === ".") {
+        valueToDisplay += "0";
     }
     document.getElementById("input-display").value = valueToDisplay;
   });
@@ -69,9 +66,9 @@ memoryButtons.forEach((button) => {
         numberMemory = inputDisplay.value;
         break;
       case "MR":
-        if (numberMemory !== "0") {
+        if (numberMemory) {
           inputDisplay.value = numberMemory;
-          if (!number1) {
+          if (number1) {
             number2 = numberMemory;
           }
         }
@@ -88,22 +85,25 @@ clearButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     switch (e.target.innerText) {
       case "C":
-        return clearValues(true);
+        return resetValues(true);
       case "CE":
-        return clearValues();
+        return resetValues();
     }
+
     document.getElementById("input-display").value = number1;
   });
 });
 
-let clearValues = (clearAll) => {
-  if (clearAll) {
+let resetValues = (resetAll) => {
+  if (resetAll) {
     number1 = "";
     operator = "";
   }
+
   number2 = "";
   isDecimal = false;
-  document.getElementById("input-display").value = "0";
+
+  document.getElementById("input-display").value = !number1 ? "0" : number1;
 };
 
 let calculateInput = () => {
