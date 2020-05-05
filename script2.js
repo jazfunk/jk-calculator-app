@@ -28,8 +28,7 @@ numberButtons.forEach((button) => {
     if (isDecimal) {
       valueToDisplay += "0";
     }
-
-    document.getElementById("input-display").value = parseFloat(valueToDisplay);
+    document.getElementById("input-display").value = valueToDisplay;
   });
 });
 
@@ -74,7 +73,7 @@ memoryButtons.forEach((button) => {
           }
         }
         break;
-      case "M-":
+      case "MC":
         numberMemory = "";
         break;
     }
@@ -101,7 +100,7 @@ let clearValues = (clearAll) => {
   }
   number2 = "";
   isDecimal = false;
-  document.getElementById("input-display").value = "";
+  document.getElementById("input-display").value = "0";
 };
 
 let calculateInput = () => {

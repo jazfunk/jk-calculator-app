@@ -29,11 +29,11 @@ a:active {
 
 h1 {
   text-align: center;
-  font-size: 36px;
+  font-size: 42px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  color: #17252A;
-  text-shadow: 1px 1px 1px #def2f1;
-  padding: 0px;
+  color: #feffff;
+  text-shadow: 1px 1px 10px #2b7a78;
+  padding: 20px;
   margin: 0 auto;
 }
 
@@ -68,13 +68,18 @@ h5:hover {
 }
 
 .main-container {
+  margin: 2px;
   display: flex;
   margin: 0 auto;
-  width: 288px;
+  width: 308px;
   background-color: #def2f1;
+  padding: 2px;
+  border-radius: 6px;
 }
 
 .calculator {
+  margin: 2px;
+  border-radius: 6px;
   display: flex;
   margin: 0 auto;
   padding: 0px;
@@ -83,16 +88,19 @@ h5:hover {
 }
 
 .display-textbox {
-  margin: 0 auto;
+  border-radius: 6px;
+  /* margin: 0 auto; */
   border: 0px solid black;
-  /* width: 288px; */
-  /* height: 60px; */
+  color: #def2f1;
+  width: 294px;
+  /* height: 42px; */
   text-align: right;
-  background-color: #def2f1;
-  padding: 0px 0px 0px 0px;
-  margin: 0px 0px 0px 0px;
+  background-color: #2b7a78;
+  padding: 20px 6px 0px 0px;
+  margin: 2px 2px 2px 0px;
   font-family: 'Courier New', Courier, monospace;
-  font-size: 22px;
+  font-size: 32px;
+  font-weight: bold;
 }
 
 .clear-memory {
@@ -131,29 +139,63 @@ h5:hover {
 }
 
 .number-btn {
-  margin: 0 auto;
+  margin: 2px;
+  border-radius: 6px;
+  /* margin: 0 auto; */
   width: 72px;
   height: 72px;
+  font-size: 26px;
+  color: #17252a;
+  background-color: #feffff;
 }
 
 .operator-buttons {
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
 }
 
 .operator-btn {
+  margin: 2px;
+  border-radius: 6px;
   width: 72px;
   height: 72px;
+  background-color: #2b7a78;
+  border: 1px #3aafa9 solid;
+  font-size: 32px;
+  color: #def2f1
+}
+#btn-total {
+  background-color: #3aafa9;
+  color: #feffff;
+  font-weight: bolder;
 }
 
 .memory-btn {
+  /* margin: 1px; */
+  margin: 2px 2px 4px 2px;
+  border-radius: 6px;
   width: 72px;
   height: 42px;
+  background-color: #3aafa9;
+  color: #def2f1;
+  border: 1px #2b7a78 solid;
+  font-size: 18px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .clear-btn {
-  width: 36px;
+  /* margin: 1px; */
+  margin: 2px 2px 4px 2px;
+  border-radius: 6px;
+  width: 33px;
   height: 42px;
+  background-color: #3AAFA9;
+  color: #def2f1;
+  border: 1px #2b7a78 solid;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 footer {
