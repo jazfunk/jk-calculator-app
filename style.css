@@ -141,7 +141,7 @@ h5:hover {
   align-items: flex-end;
 }
 
-.number-btn {
+.number-btn, #btn-decimal {
   margin: 2px;
   border-radius: 4px;
   width: 72px;

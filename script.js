@@ -1,35 +1,38 @@
-let number1 = "";
-let number2 = "";
-let operator = "";
-let numberMemory = "";
-let isDecimal = false;
+let number1 = null;
+let number2 = null;
+let operator = null;
+let numberMemory = null;
 
 const numberButtons = document.querySelectorAll(".number-btn");
 numberButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     const buttonPressed = e.target.innerText;
-    let valueToDisplay = "";
 
-    if (buttonPressed === ".") {
-      if (isDecimal) {
-        return;
-      }
-      isDecimal = true;
-    }
-
-    if (operator === "") {
-      !number1 ? (number1 = buttonPressed) : (number1 += buttonPressed);
-      valueToDisplay = number1;
+    if (operator === null) {
+      number1 = !number1 ? buttonPressed : number1 + buttonPressed;
+      document.getElementById("input-display").value = number1;
     } else {
-      !number2 ? (number2 = buttonPressed) : (number2 += buttonPressed);
-      valueToDisplay = number2;
+      number2 = !number2 ? buttonPressed : number2 + buttonPressed;
+      document.getElementById("input-display").value = number2;
     }
-
-    if (isDecimal && valueToDisplay.charAt(valueToDisplay.length - 1) === ".") {
-        valueToDisplay += "0";
-    }
-    document.getElementById("input-display").value = valueToDisplay;
   });
+});
+
+const decimalButton = document.querySelector("#btn-decimal");
+decimalButton.addEventListener("click", (e) => {
+  if (operator === null) {
+    if (number1 && number1.includes(".")) {
+      return;
+    }
+    number1 = number1 === null ? "0." : number1 + ".";
+    document.getElementById("input-display").value = number1;
+  } else {
+    if (number2 && number2.includes(".")) {
+      return;
+    }
+    number2 = number2 === null ? "0." : number2 + ".";
+    document.getElementById("input-display").value = number2;
+  }
 });
 
 const operatorButtons = document.querySelectorAll(".operator-btn");
@@ -37,21 +40,17 @@ operatorButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     const inputDisplay = document.getElementById("input-display");
 
-    if (!number2) {
+    if (number2 === null) {
       if (!inputDisplay.value) {
         return;
-      } else {
-        number1 = inputDisplay.value;
-        operator = e.target.innerText;
-        isDecimal = false;
       }
     } else {
-      inputDisplay.value = parseFloat(calculateInput().toFixed(10));
-      operator = e.target.innerText;
-      number1 = inputDisplay.value;
-      number2 = "";
-      isDecimal = false;
+      number1 = parseFloat(calculateInput().toFixed(10));
+      inputDisplay.value = number1;
+      number2 = null;
     }
+
+    operator = e.target.innerText;
   });
 });
 
@@ -74,7 +73,7 @@ memoryButtons.forEach((button) => {
         }
         break;
       case "MC":
-        numberMemory = "";
+        numberMemory = null;
         break;
     }
   });
@@ -96,31 +95,27 @@ clearButtons.forEach((button) => {
 
 let resetValues = (resetAll) => {
   if (resetAll) {
-    number1 = "";
-    operator = "";
+    number1 = null;
+    operator = null;
   }
 
-  number2 = "";
-  isDecimal = false;
+  number2 = null;
 
   document.getElementById("input-display").value = !number1 ? "0" : number1;
 };
 
 let calculateInput = () => {
-  try {
-    switch (operator) {
-      case "\xD7":
-        return parseFloat(number1) * parseFloat(number2);
-      case "\xF7":
-        return parseFloat(number1) / parseFloat(number2);
-      case "+":
-      case "=":
-        return parseFloat(number1) + parseFloat(number2);
-      case "\u2212":
-        return parseFloat(number1) - parseFloat(number2);
-    }
-  } catch (error) {
-    console.log(error.message);
-    return -1;
+  switch (operator) {
+    case "\xD7":
+      return parseFloat(number1) * parseFloat(number2);
+    case "\xF7":
+      return parseFloat(number1) / parseFloat(number2);
+    case "+":
+    case "=":
+      return parseFloat(number1) + parseFloat(number2);
+    case "\u2212":
+      return parseFloat(number1) - parseFloat(number2);
+    default:
+      throw new Error("no matching operators found");
   }
 };
