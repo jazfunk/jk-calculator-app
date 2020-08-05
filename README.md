@@ -6,6 +6,7 @@ Written in vanilla JavaScript, HTML, and CSS.  A simple calculator, with memory 
 [View Repository](https://github.com/jazfunk/jk-calculator-app.git)
 
 ## Application Images
+<img src="images/calculatorApp_SS_2.png"> <br>
 <img src="images/calculatorApp_SS.png">  
 
 ## Summary
